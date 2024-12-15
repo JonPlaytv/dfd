@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  minecraft-portal:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - MINECRAFT_SERVER_IP=127.0.0.1
+      - MINECRAFT_SERVER_RCON_PORT=25575
+      - MINECRAFT_SERVER_RCON_PASSWORD=your_rcon_password
+    volumes:
+      - ./templates:/app/templates
+    restart: unless-stopped
